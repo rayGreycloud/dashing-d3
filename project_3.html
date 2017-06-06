@@ -24,9 +24,9 @@
     let temp_x, temp_y;
 
     // Get farthest right hand point
-    let temp_x = jsonRectangles[i].x_axis + jsonRectangles[i].width;
+    temp_x = jsonRectangles[i].x_axis + jsonRectangles[i].width;
     // Get farthest left hand point
-    let temp_y = jsonRectangles[i].y_axis + jsonRectangles[i].height;
+    temp_y = jsonRectangles[i].y_axis + jsonRectangles[i].height;
 
     // If temp > max, set max to temp
     if (temp_x > max_x) { max_x = temp_x; }
@@ -36,7 +36,7 @@
 
   let svgContainer = d3.select("body")
     .append("svg")
-    .attr("width", max_x + 20);
+    .attr("width", max_x + 20)
     .attr("height", max_y + 20);
 
   let rectangles = svgContainer.selectAll("rect")
