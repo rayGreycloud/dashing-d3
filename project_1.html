@@ -10,17 +10,14 @@
 
   const theData = [ 2, 3, 5];
 
-  // returns empty selection because no p elements
   const p = d3.select("body").selectAll("p")
-    // Returns virtual selection "enter"
     .data(theData)
-    // Contains placeholders for missing elements
     .enter()
-    // Insert p element for each placeholder
     .append("p")
-    // Pass function to text operator
-    // Evaluates function for each element in order
-    .text( function (d) { return d; } );
+    // Display index and data for each element
+    .text( function (d,i) {
+       return `i = ${i} d = ${d}`;
+     });
 
 </script>
 
