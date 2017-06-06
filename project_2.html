@@ -8,7 +8,27 @@
 
 <script>
 
-  const spaceCircles = [30, 70, 110];
+  // const spaceCircles = [30, 70, 110];
+  // Refactor using JSON
+  const jsonCircles = [
+    {
+      "x_axis": 30,
+      "y_axis": 30,
+      "radius": 20,
+      "color": "green"
+    },
+    {
+      "x_axis": 70,
+      "y_axis": 70,
+      "radius": 20,
+      "color": "purple"
+    }, {
+      "x_axis": 110,
+      "y_axis": 100,
+      "radius": 20,
+      "color": "red"
+    }
+  ];
 
   // Create svg container
   const svgContainer = d3.select("body")
@@ -18,24 +38,16 @@
 
   // Bind data to circle elements
   const circles = svgContainer.selectAll("circle")
-    .data(spaceCircles)
+    .data(jsonCircles)
     .enter()
     .append("circle");
 
-  // Use data to alter circle coords
+  // Use data to alter circles
   const circleAttributes = circles
-    .attr("cx", function (d) { return d; })
-    .attr("cy", function (d) { return d; })
-    .attr("r", 20)
-    // Use data to alter colors
-    .style("fill", function (d) {
-      let returnColor;
-      if (d === 30) { returnColor = "green";
-      } else if (d === 30) { returnColor = "purple";
-      } else if (d === 110) { returnColor = "red"; }
-      return returnColor;
-    });
-
+    .attr("cx", function (d) { return d.x_axis; })
+    .attr("cy", function (d) { return d.y_axis; })
+    .attr("r", function (d) { return d.radius; })
+    .style("fill", function (d) { return d.color; });
 
 </script>
 
