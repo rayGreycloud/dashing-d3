@@ -23,7 +23,10 @@ let svgContainer = d3.select("body")
   .attr("width", 200)
   .attr("height", 200);
 
-let circles = svgContainer.selectAll("circle")
+// create circle group
+let circleGroup = svgContainer.append("g");
+// Add circles to it
+let circles = circleGroup.selectAll("circle")
   .data(circleData)
   .enter()
   .append("circle");
