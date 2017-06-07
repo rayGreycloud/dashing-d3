@@ -24,7 +24,12 @@ let svgContainer = d3.select("body")
   .attr("height", 200);
 
 // create circle group
-let circleGroup = svgContainer.append("g");
+let circleGroup = svgContainer
+  .append("g")
+  // Apply transform to group element
+  // Translate/move everything 80px right
+  .attr("transform", "translate(80,0)");
+
 // Add circles to it
 let circles = circleGroup.selectAll("circle")
   .data(circleData)
