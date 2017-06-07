@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+  </head>
+  <body>
+
+
+<script>
+// Create the svg viewport selection
+let svgContainer = d3.select("body")
+  .append("svg")
+  .attr("width", 400)
+  .attr("height", 100);
+
+// Create the scale for axis
+let axisScale = d3.scale.linear()
+  .domain([0, 100])
+  .range([0, 400]);
+
+// Create the axis
+let xAxis = d3.svg.axis().scale(axisScale);
+
+// Create group element for axis elements
+let xAxisGroup = svgContainer.append("g")
+  // Call axis function
+  .call(xAxis);
+  
+</script>
+
+  </body>
+</html>
