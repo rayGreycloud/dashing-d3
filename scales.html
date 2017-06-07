@@ -12,8 +12,13 @@
 
   let newScaledData = [];
 
+  // Determine min value
+  const minInitialData = d3.min(initialScaleData);
+  // Determine max value
+  const maxInitialData = d3.max(initialScaleData);
+
   const linearScale = d3.scale.linear()
-    .domain([0,10000])
+    .domain([minInitialData, maxInitialData])
     .range([0,100]);
 
   for (let i=0; i<initialScaleData.length; i++) {
